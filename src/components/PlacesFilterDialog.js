@@ -28,43 +28,55 @@ const CategoryIcon = {
     OTHER: <ListIcon/>
 }
 
-
-const initialState = {
+export const InitialPlacesFilterState = {
     sortBy: null,
     price: null,
-    category: {value: null, subs: []},
+    category: {value: null, subs: {}},
     subCategory: null,
 }
 
 export default function PlacesFilterDialog({open, handleClose}) {
 
     const classes = useStyles();
-    const [state, setState] = useState(initialState);
+    const [state, setState] = useState({
+        filter: InitialPlacesFilterState,
+        active: false
+    });
 
     function handleChange(name, value) {
-        setState({...state, [name]: value})
+        setState({filter: {...state.filter, [name]: value}, active: true})
     }
 
-    const subcategories = state.category.subs;
+    function handleCategoryChange(name, value) {
+        setState({filter: {...state.filter, [name]: value, subCategory: null}, active: true})
+    }
+
+    const subcategories = Object.keys(state.filter.category.subs).map(key => ({
+        label: state.filter.category.subs[key],
+        value: <Typography onClick={() => handleChange('subCategory', key)}>{Translate[key]}</Typography>
+    }));
+
     return (
-        <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-            <Header text="Filtr" cancelAction={handleClose} confirmAction={() => handleClose(state)}/>
+        <Dialog fullScreen open={open} onClose={() => handleClose()} TransitionComponent={Transition}>
+            <Header text="Filtr" cancelAction={() => handleClose()} confirmAction={() => handleClose(state.filter, state.active)}/>
             <Button className={classes.clear} variant="contained" color="primary"
-                    onClick={() => setState(initialState)}>
+                    onClick={() => setState({filter: InitialPlacesFilterState, active: false})}>
                 Vyčistit filtr
             </Button>
 
             <FilterSection label="Seřadit podle" labelIcon={<SortIcon className={classes.sortIcon}/>}
-                           selected={state.sortBy} items={
+                           selected={state.filter.sortBy} items={
                 Object.keys(SortBy).map((key) => {
                     const value = SortBy[key];
                     return {
                         label: value,
-                        value: <Typography onClick={() => handleChange('sortBy', value)}>{Translate[key]}</Typography>
+                        value: <Typography onClick={() => key !== SortBy.RELEVANCE && handleChange('sortBy', value)}>
+                            {Translate[key]}
+                        </Typography>
                     }
                 })
             }/>
-            <FilterSection label="Zvolte cenu" selected={state.price} items={
+            <FilterSection label="Zvolte cenu" selected={state.filter.price} items={
                 Object.keys(PriceRange).map((key) => {
                     const value = PriceRange[key];
                     return {
@@ -73,27 +85,20 @@ export default function PlacesFilterDialog({open, handleClose}) {
                     }
                 })
             }/>
-            <FilterSection label="Kategorie" itemStyle={classes.categoryStyle} selected={state.category.value} items={
+            <FilterSection label="Kategorie" itemStyle={classes.categoryStyle} selected={state.filter.category.value} items={
                 Object.keys(PlaceCategory).map((value) => {
                     const category = PlaceCategory[value];
                     return {
                         label: value,
-                        value: <div className={classes.category} onClick={() => handleChange('category', category)}>
+                        value: <div className={classes.category}
+                                    onClick={() => handleCategoryChange('category', category)}>
                             {CategoryIcon[value]}
                             <Typography>{Translate[value]}</Typography>
                         </div>
                     }
                 })
             }/>
-            {subcategories.length > 0 &&
-            <FilterSection label="Subkategorie" selected={state.subCategory} items={
-                subcategories.map(sub => {
-                    return {
-                        label: sub,
-                        value: <Typography onClick={() => handleChange('subCategory', sub)}>{Translate[sub]}</Typography>
-                    }
-                })
-            }/>}
+            <FilterSection label="Subkategorie" selected={state.filter.subCategory} items={subcategories}/>
         </Dialog>
     )
 }
@@ -121,5 +126,5 @@ const useStyles = makeStyles((theme) => ({
     clear: {
         alignSelf: "flex-end",
         margin: theme.spacing(1),
-    }
+    },
 }));

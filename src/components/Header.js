@@ -10,7 +10,7 @@ export default function Header(props) {
     return (
         <div className={classes.root}>
             {props.cancelAction && <CloseIcon onClick={props.cancelAction} fontSize="large"/>}
-            <Typography variant="h4">{props.text}</Typography>
+            <Typography variant="h6">{props.text}</Typography>
             {props.confirmAction && <DoneIcon onClick={props.confirmAction} fontSize="large"/>}
         </div>
     )

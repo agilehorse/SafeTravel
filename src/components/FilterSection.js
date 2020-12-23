@@ -5,24 +5,29 @@ import clsx from "clsx";
 export default function FilterSection(props) {
 
     const classes = useStyles();
+    const items = props.items;
 
     function getContent() {
-        const items = props.items
         const length = items.length;
-        if (length > 0) {
-            const xs = length % 2 > length % 3 ? 4 : 3;
-            return items.map(item =>
-                <Grid item xs={xs}>
-                    <Paper
-                        className={clsx(props.selected === item.label && classes.selected, props.itemStyle || classes.paper)}>
-                        {item.value}
-                    </Paper>
-                </Grid>
-            )
+        let xs = 3;
+        if (length % 3 === 0) {
+            xs = 4;
+        } else if (length === 2) {
+            xs = 6
         }
+        return items.map(item =>
+            <Grid item xs={xs}>
+                <Paper
+                    className={clsx(
+                        props.selected === item.label && classes.selected, props.itemStyle || classes.paper
+                    )}>
+                    {item.value}
+                </Paper>
+            </Grid>
+        )
     }
 
-    if (!props.items) {
+    if (!items || items.length === 0) {
         return <React.Fragment/>;
     }
 
@@ -55,6 +60,6 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid darkgrey",
     },
     selected: {
-        backgroundColor: 'yellow'
-    }
+        backgroundColor: 'orange',
+    },
 }));

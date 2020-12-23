@@ -1,6 +1,5 @@
 
 export const SortBy = {
-    RELEVANCE: 'RELEVANCE',
     DISTANCE: 'DISTANCE',
     RATING: 'RATING'
 }
@@ -12,44 +11,50 @@ export const PriceRange = {
     VERY_HIGH_PRICE: 'VERY_HIGH_PRICE'
 }
 
+export const FoodCategories = {ASIA: 'ASIA', AMERICA: 'AMERICA', ITALY: 'ITALY', FASTFOOD: 'FASTFOOD', GOODIES: 'GOODIES', MEXICO: 'MEXICO', VEGAN: 'VEGAN', LOCAL: 'LOCAL'}
+export const SightsCategories = {HISTORIC: 'HISTORIC', MODERN: 'MODERN'}
+export const NatureCategories = {PARK: 'PARK', FOREST: 'FOREST', HILLS: 'HILLS'}
+export const CultureCategories = {THEATRE: 'THEATRE', CINEMA: 'CINEMA', GALLERY: 'GALLERY'}
+export const SportCategories = {GYM: 'GYM'}
+
 export const PlaceCategory = {
     FOOD: {
         value: 'FOOD',
-        subs: ['ASIA', 'AMERICA', 'ITALY', 'FASTFOOD', 'GOODIES', 'MEXICO', 'VEGAN', 'LOCAL']
+        subs: FoodCategories
     },
     COFFEE: {
         value: 'COFFEE',
-        subs: []
+        subs: {}
     },
     SIGHTS: {
         value: 'SIGHTS',
-        subs: ['HISTORIC', 'MODERN']
+        subs: SightsCategories
     },
     NATURE: {
         value: 'NATURE',
-        subs: ['PARK', 'FOREST', 'HILLS']
+        subs: NatureCategories
     },
     CULTURE: {
         value: 'CULTURE',
-        subs: ['THEATRE', 'CINEMA', 'GALLERY']
+        subs: CultureCategories
     },
     SPORT: {
         value: 'SPORT',
-        subs: ['GYM']
+        subs: SportCategories
     },
     PARTY: {
         value: 'PARTY',
-        subs: []
+        subs: {}
     },
     OTHER: {
         value: 'OTHER',
-        subs: []
+        subs: {}
     }
 }
 
 export const Translate = {
     RELEVANCE: 'Relevance',
-    DISTANCE: 'Vzdálenost',
+    DISTANCE: 'Vzdálenosti',
     RATING: 'Hodnocení',
     LOW_PRICE: '€',
     MEDIUM_PRICE: '€€',
