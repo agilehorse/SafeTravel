@@ -1,17 +1,18 @@
-import {Typography} from "@material-ui/core";
-import {makeStyles} from "@material-ui/core/styles";
+import {Typography, makeStyles} from "@material-ui/core";
 import CloseIcon from '@material-ui/icons/Close';
 import DoneIcon from '@material-ui/icons/Done';
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
 
 export default function Header(props) {
 
     const classes = useStyles();
 
+    const CancelIcon = props.isCancel ? ArrowBackIosIcon : CloseIcon
     return (
         <div className={classes.root}>
-            {props.cancelAction && <CloseIcon onClick={props.cancelAction} fontSize="large"/>}
+            <CancelIcon className={!props.cancelAction && classes.hidden} onClick={props.cancelAction} fontSize="large"/>
             <Typography variant="h6">{props.text}</Typography>
-            {props.confirmAction && <DoneIcon onClick={props.confirmAction} fontSize="large"/>}
+            <DoneIcon className={!props.confirmAction && classes.hidden} onClick={props.confirmAction} fontSize="large"/>
         </div>
     )
 }
@@ -24,4 +25,7 @@ const useStyles = makeStyles(theme => ({
         padding: theme.spacing(1, 1, 1, 1),
         border: "2px solid darkgrey"
     },
+    hidden: {
+        visibility: 'hidden',
+    }
 }));

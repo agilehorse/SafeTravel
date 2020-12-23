@@ -4,14 +4,12 @@ import PlaceDetail from "./PlaceDetail";
 
 export default function Places() {
 
-    const {path} = useRouteMatch();
-
     return (
         <Switch>
-            <Route exact path={path}>
+            <Route exact path="/places">
                 <PlacesList/>
             </Route>
-            <Route path={`${path}/:placeId`}>
+            <Route path="/places/:placeId">
                 <PlaceDetail/>
             </Route>
         </Switch>

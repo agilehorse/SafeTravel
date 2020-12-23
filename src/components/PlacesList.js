@@ -20,7 +20,7 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import PlacesFilterDialog, {InitialPlacesFilterState} from "./PlacesFilterDialog";
 import clsx from "clsx";
 import {useHistory} from 'react-router-dom';
-import {places} from "../utils/mockData";
+import {NewPlace, Places} from "../utils/mockData";
 import {SortBy, Translate} from "../utils/consts";
 import AddIcon from '@material-ui/icons/Add';
 
@@ -114,9 +114,9 @@ export default function PlacesList() {
             </div>
             <List className={classes.list}>
                 <Divider/>
-                {filterFunction(places).map(place =>
+                {filterFunction(Places).map(place =>
                     <React.Fragment key={place.id}>
-                        <ListItem onClick={() => history.push('places/' + place.id)}>
+                        <ListItem onClick={() => history.push({pathname: 'places/' + place.id, state: place})}>
                             <ListItemAvatar>
                                 <Avatar src={place.picture} className={classes.large} variant="square"/>
                             </ListItemAvatar>
@@ -137,7 +137,7 @@ export default function PlacesList() {
             </List>
             <div className={classes.fabContainer}>
                 <Fab color="primary" aria-label="add" className={classes.fab}
-                     onClick={() => history.push('/places/new')}>
+                     onClick={() => history.push({pathname: '/places/new', state: NewPlace})}>
                     <AddIcon/>
                 </Fab>
             </div>

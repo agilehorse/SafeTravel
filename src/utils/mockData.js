@@ -14,7 +14,20 @@ import {
     SportCategories
 } from "./consts";
 
-export const places = [
+export const NewPlace = {
+    id: '',
+    name: '',
+    rating: 0,
+    price: PriceRange.LOW_PRICE,
+    distance: 0,
+    picture: null,
+    open: true,
+    description: '',
+    category: null,
+    subCategory: null
+}
+
+export const Places = [
     {
         id: 'pizza_gangster',
         name: 'Pizzeria Gangster',
