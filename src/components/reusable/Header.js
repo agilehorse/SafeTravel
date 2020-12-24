@@ -11,7 +11,7 @@ export default function Header(props) {
     return (
         <div className={classes.root}>
             <CancelIcon className={!props.cancelAction ? classes.hidden: ""} onClick={props.cancelAction} fontSize="large"/>
-            <Typography variant="h6">{props.text}</Typography>
+            <Typography variant="h5">{props.text}</Typography>
             <DoneIcon className={!props.confirmAction ? classes.hidden : ""} onClick={props.confirmAction} fontSize="large"/>
         </div>
     )
@@ -23,7 +23,9 @@ const useStyles = makeStyles(theme => ({
         justifyContent: "space-between",
         alignItems: "center",
         padding: theme.spacing(1, 1, 1, 1),
-        border: "2px solid darkgrey"
+        borderBottom: "2px solid darkgrey",
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
     },
     hidden: {
         visibility: 'hidden',

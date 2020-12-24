@@ -23,7 +23,8 @@ const useStyles = makeStyles((theme) => ({
         lineHeight: 1
     },
     header: {
-        alignSelf: 'flex-start'
+        alignSelf: 'flex-start',
+        color: theme.palette.primary.main
     },
     row: {
         display: 'flex',

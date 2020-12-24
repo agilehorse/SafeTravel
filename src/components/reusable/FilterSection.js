@@ -60,6 +60,7 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid darkgrey",
     },
     selected: {
-        backgroundColor: 'orange',
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText
     },
 }));

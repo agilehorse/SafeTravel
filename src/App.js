@@ -7,10 +7,9 @@ import Places from "./components/places/Places";
 import Info from "./components/Info";
 import Paths from "./components/Paths";
 import {createContext, useState} from "react";
-import {makeStyles} from "@material-ui/core/styles";
+import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 export const Context = createContext();
-
 
 export default function App() {
 
@@ -18,31 +17,48 @@ export default function App() {
     const [context, setContext] = useState("Praha");
 
     return (
-        <Context.Provider value={[context, setContext]}>
-            <Router>
-                <div className="App">
-                    <div className={classes.page}>
-                        <Switch>
-                            <Route path="/destinations">
-                                <Destinations/>
-                            </Route>
-                            <Route path="/places">
-                                <Places/>
-                            </Route>
-                            <Route path="/info">
-                                <Info/>
-                            </Route>
-                            <Route path="/paths">
-                                <Paths/>
-                            </Route>
-                        </Switch>
+        <ThemeProvider theme={theme}>
+            <Context.Provider value={[context, setContext]}>
+                <Router>
+                    <div className="App">
+                        <div className={classes.page}>
+                            <Switch>
+                                <Route path="/places">
+                                    <Places/>
+                                </Route>
+                                <Route path="/info">
+                                    <Info/>
+                                </Route>
+                                <Route path="/paths">
+                                    <Paths/>
+                                </Route>
+                                <Route path="/destinations">
+                                    <Destinations/>
+                                </Route>
+                            </Switch>
+                        </div>
+                        <SimpleBottomNavigation/>
                     </div>
-                    <SimpleBottomNavigation/>
-                </div>
-            </Router>
-        </Context.Provider>
+                </Router>
+            </Context.Provider>
+        </ThemeProvider>
     );
 }
+
+const theme = createMuiTheme({
+    palette: {
+        primary: {
+            main: '#3cb80c',
+            contrastText: '#fff'
+        },
+        // secondary: {
+            // light:'#fff',
+            // main: '#fff',
+            // dark : '#fff',
+            // contrastText: '#fff'
+        // }
+    },
+});
 
 const useStyles = makeStyles({
     page: {

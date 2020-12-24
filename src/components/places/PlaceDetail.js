@@ -19,8 +19,6 @@ export default function PlaceDetail() {
         setState({...state, [eventTarget.name]: eventTarget.value})
     }
 
-    console.log(state)
-
     if (placeId === 'new') {
         return <React.Fragment>
             <Header text="Vytvoř místo" cancelAction={() => history.push('/places')}
@@ -59,8 +57,6 @@ export default function PlaceDetail() {
                 >
                     {Object.keys(PriceRange).map((key) => {
                         const value = PriceRange[key];
-                        console.log(value)
-
                         return <MenuItem key={value} value={value}>
                             {PriceToString[value]} {Translate[value]}
                         </MenuItem>

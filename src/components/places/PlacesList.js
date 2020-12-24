@@ -39,7 +39,6 @@ export default function PlacesList() {
     })
 
     function handleDialog(filter, active) {
-        console.log(filter)
         if (filter) {
             setState({...state, filter: filter, filterActive: active})
         }
@@ -51,7 +50,6 @@ export default function PlacesList() {
     }
 
     function filterFunction(items) {
-        console.log(state)
         const placeName = state.placeName.toLowerCase();
         const open = state.open;
         const price = state.filter.price;
@@ -84,14 +82,14 @@ export default function PlacesList() {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <SearchIcon fontSize="large"/>
+                                <SearchIcon fontSize="large" color="primary"/>
                             </InputAdornment>
                         ),
                         endAdornment: (
                             <InputAdornment position={"end"}>
-                                <ExploreIcon fontSize="large"/>
-                                <FilterListIcon fontSize="large" onClick={() => setDialogOpen(true)}
-                                                className={state.filterActive ? classes.filterActive: ""}/>
+                                <ExploreIcon fontSize="large" color="primary"/>
+                                <FilterListIcon fontSize="large" onClick={() => setDialogOpen(true)} color="primary"
+                                                className={state.filterActive ? classes.filterActive : ""}/>
                             </InputAdornment>
                         )
                     }}
@@ -102,18 +100,18 @@ export default function PlacesList() {
             </div>
             <div className={classes.tags}>
                 <div onClick={() => handleChange("open", !state.open)}>
-                    <Chip variant="outlined" label="Otevřené"
+                    <Chip label="Otevřené" color="primary"
                           className={clsx(classes.tag, state.open && classes.selected)}
                     />
                 </div>
                 <div onClick={() => handleChange("favorite", !state.favorite)}>
-                    <Chip variant="outlined" label="Oblíbené"
+                    <Chip label="Oblíbené" color="primary"
                           className={clsx(classes.tag, state.favorite && classes.selected)}
                     />
                 </div>
             </div>
             <List className={classes.list}>
-                <Divider/>
+                <Divider className={classes.divider}/>
                 {filterFunction(Places).map(place =>
                     <React.Fragment key={place.id}>
                         <ListItem onClick={() => history.push({pathname: 'places/' + place.id, state: place})}>
@@ -131,7 +129,7 @@ export default function PlacesList() {
                                 className={classes.end}
                             />
                         </ListItem>
-                        <Divider/>
+                        <Divider className={classes.divider}/>
                     </React.Fragment>
                 )}
             </List>
@@ -174,12 +172,16 @@ const useStyles = makeStyles((theme) => ({
     listItemText: {
         marginLeft: theme.spacing(1),
     },
+    divider: {
+        backgroundColor: theme.palette.primary.main
+    },
     end: {
         alignSelf: "flex-end",
         textAlign: "end"
     },
     selected: {
         backgroundColor: 'orange',
+        fontWeight: 'bold',
     },
     fabContainer: {
         position: 'fixed',
@@ -188,7 +190,7 @@ const useStyles = makeStyles((theme) => ({
         justifyContent: "flex-end"
     },
     filterActive: {
-      backgroundColor: 'orange',
+        backgroundColor: 'orange',
         borderRadius: '50%',
         padding: theme.spacing(0.2)
     },
