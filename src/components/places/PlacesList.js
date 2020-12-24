@@ -1,6 +1,6 @@
-import Header from "./Header";
+import Header from "../reusable/Header";
 import React, {useContext, useState} from "react";
-import {Context} from "../App";
+import {Context} from "../../App";
 import {
     Avatar,
     Chip,
@@ -20,8 +20,8 @@ import FilterListIcon from '@material-ui/icons/FilterList';
 import PlacesFilterDialog, {InitialPlacesFilterState} from "./PlacesFilterDialog";
 import clsx from "clsx";
 import {useHistory} from 'react-router-dom';
-import {NewPlace, Places} from "../utils/mockData";
-import {SortBy, Translate} from "../utils/consts";
+import {NewPlace, Places} from "../../utils/mockData";
+import {SortBy, Translate} from "../../utils/consts";
 import AddIcon from '@material-ui/icons/Add';
 
 export default function PlacesList() {

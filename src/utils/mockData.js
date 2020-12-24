@@ -30,13 +30,13 @@ export const NewPlace = {
 export const Places = [
     {
         id: 'pizza_gangster',
-        name: 'Pizzeria Gangster',
+        name: 'Pizzerie Gangster',
         rating: 8.6,
         price: PriceRange.LOW_PRICE,
         distance: 0.5,
         picture: PizzaPicture,
         open: true,
-        description: '',
+        description: 'Ačkoliv pizzerie Gangster sídlí nedaleko národního muzea, když ji navštivíte, jakoby jste se přenesli do srdce itálie.',
         category: PlaceCategory.FOOD.value,
         subCategory: FoodCategories.ITALY
     },

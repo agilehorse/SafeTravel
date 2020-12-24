@@ -10,9 +10,9 @@ export default function Header(props) {
     const CancelIcon = props.isCancel ? ArrowBackIosIcon : CloseIcon
     return (
         <div className={classes.root}>
-            <CancelIcon className={!props.cancelAction && classes.hidden} onClick={props.cancelAction} fontSize="large"/>
+            <CancelIcon className={!props.cancelAction ? classes.hidden: ""} onClick={props.cancelAction} fontSize="large"/>
             <Typography variant="h6">{props.text}</Typography>
-            <DoneIcon className={!props.confirmAction && classes.hidden} onClick={props.confirmAction} fontSize="large"/>
+            <DoneIcon className={!props.confirmAction ? classes.hidden : ""} onClick={props.confirmAction} fontSize="large"/>
         </div>
     )
 }

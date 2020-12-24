@@ -1,8 +1,8 @@
-import Header from "./Header";
+import Header from "../reusable/Header";
 import {Button, Dialog, makeStyles, Slide, Typography} from "@material-ui/core";
 import React, {forwardRef, useState} from "react";
 import SortIcon from '@material-ui/icons/Sort';
-import FilterSection from "./FilterSection";
+import FilterSection from "../reusable/FilterSection";
 import RestaurantIcon from '@material-ui/icons/Restaurant';
 import FreeBreakfastIcon from '@material-ui/icons/FreeBreakfast';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
@@ -11,7 +11,7 @@ import TheatersIcon from '@material-ui/icons/Theaters';
 import FitnessCenterIcon from '@material-ui/icons/FitnessCenter';
 import LocalBarIcon from '@material-ui/icons/LocalBar';
 import ListIcon from '@material-ui/icons/List';
-import {PlaceCategory, PriceRange, SortBy, Translate} from "../utils/consts";
+import {PlaceCategory, PriceRange, SortBy, Translate} from "../../utils/consts";
 
 const Transition = forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
@@ -53,7 +53,7 @@ export default function PlacesFilterDialog({open, handleClose}) {
 
     const subcategories = Object.keys(state.filter.category.subs).map(key => ({
         label: state.filter.category.subs[key],
-        value: <Typography onClick={() => handleChange('subCategory', key)}>{Translate[key]}</Typography>
+        value: <Typography key={key} onClick={() => handleChange('subCategory', key)}>{Translate[key]}</Typography>
     }));
 
     return (
@@ -70,7 +70,7 @@ export default function PlacesFilterDialog({open, handleClose}) {
                     const value = SortBy[key];
                     return {
                         label: value,
-                        value: <Typography onClick={() => key !== SortBy.RELEVANCE && handleChange('sortBy', value)}>
+                        value: <Typography key={key} onClick={() => key !== SortBy.RELEVANCE && handleChange('sortBy', value)}>
                             {Translate[key]}
                         </Typography>
                     }
@@ -81,7 +81,7 @@ export default function PlacesFilterDialog({open, handleClose}) {
                     const value = PriceRange[key];
                     return {
                         label: value,
-                        value: <Typography onClick={() => handleChange('price', value)}>{Translate[key]}</Typography>
+                        value: <Typography key={key} onClick={() => handleChange('price', value)}>{Translate[key]}</Typography>
                     }
                 })
             }/>
@@ -90,7 +90,7 @@ export default function PlacesFilterDialog({open, handleClose}) {
                     const category = PlaceCategory[value];
                     return {
                         label: value,
-                        value: <div className={classes.category}
+                        value: <div key={value} className={classes.category}
                                     onClick={() => handleCategoryChange('category', category)}>
                             {CategoryIcon[value]}
                             <Typography>{Translate[value]}</Typography>
