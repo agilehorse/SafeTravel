@@ -86,3 +86,10 @@ export const Translate = {
     GALLERY: 'Galerie',
     GYM: 'Fitko',
 }
+
+export const PriceToString = {
+    LOW_PRICE: 'Nízká',
+    MEDIUM_PRICE: 'Střední',
+    HIGH_PRICE: 'Vysoká',
+    VERY_HIGH_PRICE: 'Velmi vysoká'
+}

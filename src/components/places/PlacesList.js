@@ -91,7 +91,7 @@ export default function PlacesList() {
                             <InputAdornment position={"end"}>
                                 <ExploreIcon fontSize="large"/>
                                 <FilterListIcon fontSize="large" onClick={() => setDialogOpen(true)}
-                                                className={state.filterActive && classes.filterActive}/>
+                                                className={state.filterActive ? classes.filterActive: ""}/>
                             </InputAdornment>
                         )
                     }}
@@ -118,7 +118,7 @@ export default function PlacesList() {
                     <React.Fragment key={place.id}>
                         <ListItem onClick={() => history.push({pathname: 'places/' + place.id, state: place})}>
                             <ListItemAvatar>
-                                <Avatar src={place.picture} className={classes.large} variant="square"/>
+                                <Avatar src={place.icon} className={classes.large} variant="square"/>
                             </ListItemAvatar>
                             <ListItemText
                                 primary={place.name}
@@ -169,7 +169,7 @@ const useStyles = makeStyles((theme) => ({
     },
     list: {
         flexGrow: 1,
-        marginBottom: 120
+        marginBottom: 60
     },
     listItemText: {
         marginLeft: theme.spacing(1),
