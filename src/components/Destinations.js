@@ -28,7 +28,6 @@ export default function Destinations() {
         <div className={classes.root}>
             <img src={logo} alt="app logo" className={classes.image}/>
 
-
             <div className={classes.searchRow}>
                 <TextField
                     id="input-with-icon-textfield"
@@ -49,7 +48,6 @@ export default function Destinations() {
                     }}
                     fullWidth
                     placeholder="Kam Cestuješ?"
-
                 />
             </div>
         </div>
@@ -65,10 +63,10 @@ const useStyles = makeStyles((theme) => ({
     },
     image: {
         marginTop: theme.spacing(5),
-        maxWidth: '80%',
+        maxWidth: '90%',
     },
     searchRow: {
         marginTop: theme.spacing(10),
-        width: '40%',
+        width: '80%',
     }
 }));

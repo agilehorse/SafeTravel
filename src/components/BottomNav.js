@@ -53,8 +53,6 @@ export default function SimpleBottomNavigation() {
             <BottomNavigationAction label="Info" icon={<WarningIcon/>}/>
             <BottomNavigationAction label="Cesty" icon={<TrendingUpIcon/>}/>
             <BottomNavigationAction label="Nastavení" icon={<SettingIcon/>}/>
-
-
         </BottomNavigation>
     );
 }

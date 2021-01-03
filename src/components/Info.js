@@ -6,7 +6,6 @@ import {makeStyles, withStyles} from "@material-ui/core/styles";
 import Header from "./reusable/Header";
 import {Context} from "../App";
 import {InitialPlacesFilterState} from "./places/PlacesFilterDialog";
-import Rating from "@material-ui/lab/Rating";
 
 export default function Info() {
 
@@ -47,10 +46,7 @@ export default function Info() {
             <Button variant="contained" color="secondary" className={classes.buttons}>
                 DOPORUČENÍ
             </Button>
-
-
         </div>
-
     )
 }
 
@@ -59,6 +55,8 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         flexDirection: 'column',
         alignItems: "center",
+        textAlign: 'center',
+        paddingBottom: theme.spacing(10),
     },
     ratingBox:{
         textAlign: "center",
@@ -72,22 +70,8 @@ const useStyles = makeStyles((theme) => ({
     ratingDescription:{
         fontWeight: "bold",
     },
-    header:{
-        textAlign: "center",
-        width: "100%",
-        background: '#3cb80c',
-        marginTop: theme.spacing(0),
-        marginBottom: theme.spacing(10),
-        paddingBottom: theme.spacing(1.5),
-        paddingTop: theme.spacing(1.5),
-        color: "white",
-        fontWeight: "normal",
-        borderBottom: "2px solid darkgrey",
-        fontSize:'25px',
-
-    },
     info:{
-        marginTop: theme.spacing(15),
+        marginTop: theme.spacing(10),
     },
     buttons:{
         width: '80%',
@@ -102,6 +86,11 @@ const useStyles = makeStyles((theme) => ({
     },
     divHeader:{
         width: '100%',
-    }
+        marginBottom: theme.spacing(5),
+    },
+    image: {
+        maxWidth: '90%',
+        margin: '5%'
+    },
 }));
 
