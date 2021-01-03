@@ -6,6 +6,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import WarningIcon from '@material-ui/icons/Warning';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import SettingIcon from '@material-ui/icons/Settings';
 import {useHistory} from "react-router-dom";
 
 export default function SimpleBottomNavigation() {
@@ -28,8 +29,13 @@ export default function SimpleBottomNavigation() {
                 targetUrl = "/paths"
                 break;
             }
+            case 4: {
+                targetUrl = "/settings"
+                break;
+            }
             default :
                 targetUrl = "/destinations"
+                break;
         }
         history.push(targetUrl)
         setValue(newValue);
@@ -46,6 +52,9 @@ export default function SimpleBottomNavigation() {
             <BottomNavigationAction label="Cíle" icon={<LocationCityIcon/>}/>
             <BottomNavigationAction label="Info" icon={<WarningIcon/>}/>
             <BottomNavigationAction label="Cesty" icon={<TrendingUpIcon/>}/>
+            <BottomNavigationAction label="Nastavení" icon={<SettingIcon/>}/>
+
+
         </BottomNavigation>
     );
 }

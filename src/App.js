@@ -6,7 +6,10 @@ import Destinations from "./components/Destinations";
 import Places from "./components/places/Places";
 import Info from "./components/Info";
 import Paths from "./components/Paths";
-import {createContext, useState} from "react";
+import Preferences from "./components/settings/Preferences";
+import SettingsPage from "./components/settings/Settings";
+
+import React, {createContext, useState} from "react";
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 
 export const Context = createContext();
@@ -32,8 +35,14 @@ export default function App() {
                                 <Route path="/paths">
                                     <Paths/>
                                 </Route>
+                                <Route path="/settings">
+                                    <SettingsPage/>
+                                </Route>
                                 <Route path="/destinations">
                                     <Destinations/>
+                                </Route>
+                                <Route path="/">
+                                    <Preferences/>
                                 </Route>
                             </Switch>
                         </div>
