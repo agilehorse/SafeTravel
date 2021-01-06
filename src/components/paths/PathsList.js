@@ -3,6 +3,7 @@ import {makeStyles} from "@material-ui/core";
 import Header from "../reusable/Header";
 import {Context} from "../../App";
 import SearchInput from "../reusable/SearchInput";
+import Chips from "../reusable/Chips";
 
 export default function PathsList() {
     const classes = useStyles();
@@ -23,6 +24,28 @@ export default function PathsList() {
                     placeholder="Vyhledej si cestu"
                 />
             </div>
+            <Chips
+                data={[
+                    {
+                        key: "zazitkove",
+                        label: "Zážitkové",
+                        onClick: () => {},
+                        state: false
+                    },
+                    {
+                        key: "sportovni",
+                        label: "Sportovní",
+                        onClick: () => {},
+                        state: false
+                    },
+                    {
+                        key: "po pamatkach",
+                        label: "Po památkách",
+                        onClick: () => {},
+                        state: false
+                    }
+                ]}
+            />
         </section>
     );
 }

@@ -6,17 +6,12 @@ import {
     Chip,
     Divider,
     Fab,
-    InputAdornment,
     List,
     ListItem,
     ListItemAvatar,
     ListItemText,
-    makeStyles,
-    TextField
+    makeStyles
 } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import ExploreIcon from '@material-ui/icons/Explore';
-import FilterListIcon from '@material-ui/icons/FilterList';
 import PlacesFilterDialog, {InitialPlacesFilterState} from "./PlacesFilterDialog";
 import clsx from "clsx";
 import {useHistory} from 'react-router-dom';
@@ -24,6 +19,8 @@ import {NewPlace, Places} from "../../utils/mockData";
 import {SortBy, Translate} from "../../utils/consts";
 import AddIcon from '@material-ui/icons/Add';
 import SearchInput from "../reusable/SearchInput";
+import Chips from "../reusable/Chips";
+import Items from "../reusable/Items";
 
 export default function PlacesList() {
 
@@ -90,23 +87,26 @@ export default function PlacesList() {
                     onChange={(event) => handleChange("placeName", event.target.value)}
                 />
             </div>
-            <div className={classes.tags}>
-                <div onClick={() => handleChange("open", !state.open)}>
-                    <Chip label="Otevřené" color="primary"
-                          className={clsx(classes.tag, state.open && classes.selected)}
-                    />
-                </div>
-                <div onClick={() => handleChange("favorite", !state.favorite)}>
-                    <Chip label="Oblíbené" color="primary"
-                          className={clsx(classes.tag, state.favorite && classes.selected)}
-                    />
-                </div>
-            </div>
-            <List className={classes.list}>
-                <Divider className={classes.divider}/>
-                {filterFunction(Places).map(place =>
-                    <React.Fragment key={place.id}>
-                        <ListItem onClick={() => history.push({pathname: 'places/' + place.id, state: place})}>
+            <Chips
+                data={[
+                    {
+                        key: "open",
+                        label: "Otevřené",
+                        onClick: () => handleChange("open", !state.open),
+                        state: state.open
+                    },
+                    {
+                        key: "oblibene",
+                        label: "Oblíbené",
+                        onClick: () => handleChange("favorite", !state.favorite),
+                        state: state.favorite
+                    }
+                ]}
+            />
+            <Items>
+                {
+                    filterFunction(Places).map(place =>
+                        <ListItem key={place.id} onClick={() => history.push({pathname: 'places/' + place.id, state: place})}>
                             <ListItemAvatar>
                                 <Avatar src={place.icon} className={classes.large} variant="square"/>
                             </ListItemAvatar>
@@ -121,10 +121,9 @@ export default function PlacesList() {
                                 className={classes.end}
                             />
                         </ListItem>
-                        <Divider className={classes.divider}/>
-                    </React.Fragment>
-                )}
-            </List>
+                    )
+                }
+            </Items>
             <div className={classes.fabContainer}>
                 <Fab color="primary" aria-label="add" className={classes.fab}
                      onClick={() => history.push({pathname: '/places/new', state: NewPlace})}>
@@ -145,27 +144,12 @@ const useStyles = makeStyles((theme) => ({
     searchRow: {
         margin: theme.spacing(1),
     },
-    tags: {
-        display: "flex",
-        margin: theme.spacing(0, 1),
-        justifyContent: "flex-start"
-    },
-    tag: {
-        margin: theme.spacing(0, 0.5),
-    },
     large: {
         width: theme.spacing(7),
         height: theme.spacing(7),
     },
-    list: {
-        flexGrow: 1,
-        marginBottom: 60
-    },
     listItemText: {
         marginLeft: theme.spacing(1),
-    },
-    divider: {
-        backgroundColor: theme.palette.primary.main
     },
     end: {
         alignSelf: "flex-end",
