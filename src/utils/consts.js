@@ -1,4 +1,5 @@
 
+
 export const SortBy = {
     DISTANCE: 'DISTANCE',
     RATING: 'RATING'

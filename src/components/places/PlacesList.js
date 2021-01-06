@@ -21,6 +21,7 @@ import AddIcon from '@material-ui/icons/Add';
 import SearchInput from "../reusable/SearchInput";
 import Chips from "../reusable/Chips";
 import Items from "../reusable/Items";
+import BottomBtn from "../reusable/BottomBtn";
 
 export default function PlacesList() {
 
@@ -124,12 +125,10 @@ export default function PlacesList() {
                     )
                 }
             </Items>
-            <div className={classes.fabContainer}>
-                <Fab color="primary" aria-label="add" className={classes.fab}
-                     onClick={() => history.push({pathname: '/places/new', state: NewPlace})}>
-                    <AddIcon/>
-                </Fab>
-            </div>
+            <BottomBtn
+                path="/places/new"
+                state={NewPlace}
+            />
             <PlacesFilterDialog open={dialogOpen} handleClose={handleDialog}/>
         </div>
     )
@@ -158,12 +157,6 @@ const useStyles = makeStyles((theme) => ({
     selected: {
         backgroundColor: 'orange',
         fontWeight: 'bold',
-    },
-    fabContainer: {
-        position: 'fixed',
-        right: theme.spacing(1),
-        bottom: theme.spacing(8),
-        justifyContent: "flex-end"
     },
     filterActive: {
         backgroundColor: 'orange',

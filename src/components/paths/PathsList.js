@@ -6,8 +6,9 @@ import SearchInput from "../reusable/SearchInput";
 import Chips from "../reusable/Chips";
 import Items from "../reusable/Items";
 import {Translate} from "../../utils/consts";
-import {PATHS} from "../../utils/mockData";
+import {NewPlace, PATHS} from "../../utils/mockData";
 import {useHistory} from "react-router-dom";
+import BottomBtn from "../reusable/BottomBtn";
 
 export default function PathsList() {
     const classes = useStyles();
@@ -72,6 +73,7 @@ export default function PathsList() {
                     )
                 }
             </Items>
+            <BottomBtn />
         </section>
     );
 }
