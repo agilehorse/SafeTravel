@@ -23,6 +23,7 @@ import {useHistory} from 'react-router-dom';
 import {NewPlace, Places} from "../../utils/mockData";
 import {SortBy, Translate} from "../../utils/consts";
 import AddIcon from '@material-ui/icons/Add';
+import SearchInput from "../reusable/SearchInput";
 
 export default function PlacesList() {
 
@@ -76,24 +77,15 @@ export default function PlacesList() {
         <div className={classes.root}>
             <Header text={"Cíle  - " + context}/>
             <div className={classes.searchRow}>
-                <TextField
-                    id="input-with-icon-textfield"
-                    variant="outlined"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon fontSize="large" color="primary"/>
-                            </InputAdornment>
-                        ),
-                        endAdornment: (
-                            <InputAdornment position={"end"}>
-                                <ExploreIcon fontSize="large" color="primary"/>
-                                <FilterListIcon fontSize="large" onClick={() => setDialogOpen(true)} color="primary"
-                                                className={state.filterActive ? classes.filterActive : ""}/>
-                            </InputAdornment>
-                        )
+                <SearchInput
+                    icons={{
+                        search: {},
+                        explore: {},
+                        filter: {
+                            onClick: () => setDialogOpen(true),
+                            className: state.filterActive ? classes.filterActive : ""
+                        }
                     }}
-                    fullWidth
                     placeholder="Hledat cíle"
                     onChange={(event) => handleChange("placeName", event.target.value)}
                 />

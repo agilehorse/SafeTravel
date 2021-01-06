@@ -6,6 +6,7 @@ import FilterListIcon from "@material-ui/icons/FilterList";
 import React, {useContext, useState} from "react";
 import {Context} from "../App";
 import {useHistory, useLocation} from "react-router-dom";
+import SearchInput from "./reusable/SearchInput";
 
 
 export default function Destinations() {
@@ -29,25 +30,17 @@ export default function Destinations() {
             <img src={logo} alt="app logo" className={classes.image}/>
 
             <div className={classes.searchRow}>
-                <TextField
-                    id="input-with-icon-textfield"
-                    variant="outlined"
-                    InputProps={{
-                        startAdornment: (
-                            <InputAdornment position="start">
-                                <SearchIcon fontSize="large" color="primary"
-                                            onClick={() => history.push('/Places')}/>
-                            </InputAdornment>
-                        ),
-                        endAdornment: (
-                            <InputAdornment position={"end"}>
-                                <ExploreIcon fontSize="large" color="primary"
-                                onClick={() => history.push('/Places')}/>
-                            </InputAdornment>
-                        )
+                <SearchInput
+                    icons={{
+                        search: {
+                            onClick: () => history.push('/Places')
+                        },
+                        explore: {
+                            onClick: () => history.push('/Places')
+                        }
                     }}
-                    fullWidth
-                    placeholder="Kam Cestuješ?"
+
+                    placeholder="Kam cestujete?"
                 />
             </div>
         </div>
