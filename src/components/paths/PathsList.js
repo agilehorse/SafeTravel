@@ -1,13 +1,18 @@
 import React, {useContext} from "react";
-import {makeStyles} from "@material-ui/core";
+import {Avatar, ListItem, ListItemAvatar, ListItemText, makeStyles} from "@material-ui/core";
 import Header from "../reusable/Header";
 import {Context} from "../../App";
 import SearchInput from "../reusable/SearchInput";
 import Chips from "../reusable/Chips";
+import Items from "../reusable/Items";
+import {Translate} from "../../utils/consts";
+import {PATHS} from "../../utils/mockData";
+import {useHistory} from "react-router-dom";
 
 export default function PathsList() {
     const classes = useStyles();
     const [context] = useContext(Context);
+    const history = useHistory();
 
     return (
         <section className={classes.root}>
@@ -46,6 +51,27 @@ export default function PathsList() {
                     }
                 ]}
             />
+            <Items>
+                {
+                    PATHS.map((path, i) =>
+                        <ListItem key={path.id} onClick={() => history.push(`/paths/${i}`)}>
+                            <ListItemAvatar>
+
+                            </ListItemAvatar>
+                            <ListItemText
+                                primary={path.name}
+                                secondary={
+                                    <>
+                                        <div>{path.rating}</div>
+                                        <div>{path.description}</div>
+                                    </>
+                                }
+                                className={classes.listItemText}
+                            />
+                        </ListItem>
+                    )
+                }
+            </Items>
         </section>
     );
 }
@@ -58,5 +84,8 @@ const useStyles = makeStyles((theme) => ({
     },
     searchRow: {
         margin: theme.spacing(1),
+    },
+    listItemText: {
+        marginLeft: theme.spacing(1),
     }
 }));

@@ -93,3 +93,7 @@ export const PriceToString = {
     HIGH_PRICE: 'Vysoká',
     VERY_HIGH_PRICE: 'Velmi vysoká'
 }
+
+export const PATH_TYPES = {
+  ON_FOOT: "Pěšky"
+};

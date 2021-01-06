@@ -15,7 +15,7 @@ import BridgePicture from "../resources/bridge.jpg"
 import {
     CultureCategories,
     FoodCategories,
-    NatureCategories,
+    NatureCategories, PATH_TYPES,
     PlaceCategory,
     PriceRange, SightsCategories,
     SportCategories
@@ -126,4 +126,65 @@ export const Places = [
         category: PlaceCategory.SIGHTS.value,
         subCategory: SightsCategories.HISTORIC
     }
-]
+];
+
+export const PATHS = [
+    {
+        id: "josefov",
+        name: "Josefov – Pražský hrad",
+        rating: 120,
+        description: "Jedinečná cesta skrz jednu z mála zachovalých židovských čtvrtí v Evropě.",
+        duration: 60*10,
+        type: PATH_TYPES.ON_FOOT,
+        path: [
+            {
+                id: "staromestske namesti",
+                name: "Staroměstské náměstí",
+                description: `
+                Náměstí v Praze v centru Starého Města a historického jádra velkoměsta vůbec.
+                Staroměstské náměstí obklopují historické stavby, z nichž vyniká Staroměstská radnice s orlojem, 
+                Týnský chrám, husitský kostel svatého Mikuláše na Starém Městě, palác Kinských a dům „U Kamenného zvonu“. 
+                Na náměstí stojí pomník mistra Jana Husa a Mariánský sloup. Renesanční, barokní a rokokové domy po obvodu
+                náměstí mají románské a gotické základy.
+                `
+            },
+            {
+                id: "spanelska synagoga",
+                name: "Španělská synagoga",
+                description: `
+                Španělská synagoga (původně Templ v Dušní ulici) je nejmladší synagogou v tzv. židovském městě na pražském Josefově. 
+                Byla postavena v maurském slohu. Nachází se v Dušní ulici v sousedství kostela sv. Ducha a parčíku s pomníkem
+                Franze Kafky od Jaroslava Róny. V současnosti je spravována Židovským muzeem v Praze.
+                `
+            },
+            {
+                id: "pinkasova synagoga",
+                name: "Pinkasova synagoga",
+                description: `
+                Pinkasova synagoga je druhou nejstarší dochovanou synagogou v Praze. Byla postavena z iniciativy
+                příslušníka významné rodiny své doby Arona Mešulama Horovice v první polovině 16. století. V současné
+                době je spravována Židovským muzeem v Praze a slouží jako památník přes 80 000 českých Židů,
+                kteří zahynuli během holokaustu.
+                `
+            },
+            {
+                id: "staronova synagoga",
+                name: "Staronová synagoga",
+                description: `
+                Staronová synagoga v Praze, mezinárodně známá také jako Altneuschul, je jedna z nejstarších synagog v
+                Evropě, která se stále používá k náboženským obřadům. Zároveň je jednou z nejstarších dochovaných synagog
+                ve střední Evropě a také nejstarší dochovanou stavbou Josefova.
+                `
+            }
+        ]
+    },
+    {
+        id: "kralovske vinohrady",
+        name: "Cesta Královskými Vinohrady",
+        rating: 54,
+        description: "Cesta jednou z nedoceněných čtvrtí města.",
+        duration: 60*4,
+        type: PATH_TYPES.ON_FOOT,
+        path: []
+    }
+];
