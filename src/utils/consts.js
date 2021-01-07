@@ -3,7 +3,6 @@ import React from "react";
 import LocationCityIcon from "@material-ui/icons/LocationCity";
 import WarningIcon from "@material-ui/icons/Warning";
 import TrendingUpIcon from "@material-ui/icons/TrendingUp";
-import SettingIcon from "@material-ui/icons/Settings";
 
 export const NAVIGATION = [
     {
@@ -29,14 +28,10 @@ export const NAVIGATION = [
         uri: "paths",
         name: "Cesty",
         icon: <TrendingUpIcon/>
-    },
-    {
-        id: 4,
-        uri: "settings",
-        name: "Nastavení",
-        icon: <SettingIcon/>
     }
 ];
+
+export const PRAGUE_MAP_URL = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d27680.46413497188!2d14.393695493240752!3d50.0854831768345!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e91381d33f%3A0x2600af105c240cf2!2sPraha%201!5e1!3m2!1scs!2scz!4v1610041867231!5m2!1scs!2scz";
 
 export const SortBy = {
     DISTANCE: 'DISTANCE',

@@ -4,6 +4,7 @@ import PathsList from "./PathsList";
 import PathsDetail from "./PathsDetail";
 import PathsPlaceDetail from "./PathsPlaceDetail";
 import PathsNavigation from "./PathsNavigation";
+import PathsCreation from "./PathsCreation";
 
 export default function Paths() {
 
@@ -11,6 +12,9 @@ export default function Paths() {
         <Switch>
             <Route exact path="/paths">
                 <PathsList />
+            </Route>
+            <Route path="/paths/new" exact>
+                <PathsCreation />
             </Route>
             <Route path="/paths/:pathId/navigation/:currentNav/place/:placeId" exact>
                 <PathsPlaceDetail />

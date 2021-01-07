@@ -11,7 +11,7 @@ export default function ({path, state}) {
     return (
         <div className={classes.fabContainer}>
             <Fab color="primary" aria-label="add"
-                 onClick={() => history.push({pathname: path, state: state})}>
+                 onClick={() => history.push(state ? {pathname: path, state: state} : path)}>
                 <AddIcon/>
             </Fab>
         </div>

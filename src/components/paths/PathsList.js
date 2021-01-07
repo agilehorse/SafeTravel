@@ -77,7 +77,9 @@ export default function PathsList() {
                     )
                 }
             </Items>
-            <BottomBtn />
+            <BottomBtn
+                path="/paths/new"
+            />
         </section>
     );
 }
