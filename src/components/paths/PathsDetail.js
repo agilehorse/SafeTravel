@@ -59,23 +59,22 @@ export default function PathsDetail() {
 
 
                 <Collapse in={alert}>
-                    <p style={{marginTop: 0}}>
-                        <Alert
-                            severity="warning"
-                            action={
-                                <IconButton
-                                    aria-label="close"
-                                    color="inherit"
-                                    size="small"
-                                    onClick={() => setAlert(false)}
-                                >
-                                    <CloseIcon fontSize="inherit" />
-                                </IconButton>
-                            }
-                        >
-                            Tuto cestu jste již ohodnotil.
-                        </Alert>
-                    </p>
+                    <Alert
+                        severity="warning"
+                        className={classes.alert}
+                        action={
+                            <IconButton
+                                aria-label="close"
+                                color="inherit"
+                                size="small"
+                                onClick={() => setAlert(false)}
+                            >
+                                <CloseIcon fontSize="inherit" />
+                            </IconButton>
+                        }
+                    >
+                        Tuto cestu jste již ohodnotil.
+                    </Alert>
                 </Collapse>
 
 
@@ -115,5 +114,8 @@ const useStyles = makeStyles((theme)=>({
     ratingLine: {
         display: "flex",
         alignItems: "center"
+    },
+    alert: {
+        marginBottom: theme.spacing(2)
     }
 }));

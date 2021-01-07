@@ -1,4 +1,42 @@
+import SearchIcon from "@material-ui/icons/Search";
+import React from "react";
+import LocationCityIcon from "@material-ui/icons/LocationCity";
+import WarningIcon from "@material-ui/icons/Warning";
+import TrendingUpIcon from "@material-ui/icons/TrendingUp";
+import SettingIcon from "@material-ui/icons/Settings";
 
+export const NAVIGATION = [
+    {
+        id: 0,
+        uri: "destinations",
+        name: "Destinace",
+        icon: <SearchIcon/>
+    },
+    {
+        id: 1,
+        uri: "places",
+        name: "Cíle",
+        icon: <LocationCityIcon/>
+    },
+    {
+        id: 2,
+        uri: "info",
+        name: "Info",
+        icon: <WarningIcon/>
+    },
+    {
+        id: 3,
+        uri: "paths",
+        name: "Cesty",
+        icon: <TrendingUpIcon/>
+    },
+    {
+        id: 4,
+        uri: "settings",
+        name: "Nastavení",
+        icon: <SettingIcon/>
+    }
+];
 
 export const SortBy = {
     DISTANCE: 'DISTANCE',

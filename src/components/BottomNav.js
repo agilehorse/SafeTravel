@@ -2,42 +2,17 @@ import React from 'react';
 import {makeStyles} from '@material-ui/core/styles';
 import BottomNavigation from '@material-ui/core/BottomNavigation';
 import BottomNavigationAction from '@material-ui/core/BottomNavigationAction';
-import SearchIcon from '@material-ui/icons/Search';
-import LocationCityIcon from '@material-ui/icons/LocationCity';
-import WarningIcon from '@material-ui/icons/Warning';
-import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import SettingIcon from '@material-ui/icons/Settings';
-import {useHistory} from "react-router-dom";
+import {useHistory, useRouteMatch} from "react-router-dom";
+import {NAVIGATION} from "../utils/consts";
+import {getPageNameFromURL, translateURI} from "../utils/functions";
 
 export default function SimpleBottomNavigation() {
     const classes = useStyles();
     const history = useHistory();
-    const [value, setValue] = React.useState(0);
+    const [value, setValue] = React.useState(translateURI(getPageNameFromURL()));
 
     function handleChange(newValue) {
-        let targetUrl;
-        switch (newValue) {
-            case 1: {
-                targetUrl = "/places"
-                break;
-            }
-            case 2: {
-                targetUrl = "/info"
-                break;
-            }
-            case 3: {
-                targetUrl = "/paths"
-                break;
-            }
-            case 4: {
-                targetUrl = "/settings"
-                break;
-            }
-            default :
-                targetUrl = "/destinations"
-                break;
-        }
-        history.push(targetUrl)
+        history.push(`/${translateURI(newValue)}`);
         setValue(newValue);
     }
 
@@ -48,11 +23,11 @@ export default function SimpleBottomNavigation() {
             showLabels
             className={classes.root}
         >
-            <BottomNavigationAction label="Destinace" icon={<SearchIcon/>}/>
-            <BottomNavigationAction label="Cíle" icon={<LocationCityIcon/>}/>
-            <BottomNavigationAction label="Info" icon={<WarningIcon/>}/>
-            <BottomNavigationAction label="Cesty" icon={<TrendingUpIcon/>}/>
-            <BottomNavigationAction label="Nastavení" icon={<SettingIcon/>}/>
+            {
+                NAVIGATION.map((item) =>
+                    <BottomNavigationAction key={item.id} label={item.name} icon={item.icon}/>
+                )
+            }
         </BottomNavigation>
     );
 }
