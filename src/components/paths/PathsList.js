@@ -10,6 +10,8 @@ import {NewPlace, PATHS} from "../../utils/mockData";
 import {useHistory} from "react-router-dom";
 import BottomBtn from "../reusable/BottomBtn";
 
+import { StarHalf } from '@material-ui/icons';
+
 export default function PathsList() {
     const classes = useStyles();
     const [context] = useContext(Context);
@@ -57,14 +59,16 @@ export default function PathsList() {
                     PATHS.map((path, i) =>
                         <ListItem key={path.id} onClick={() => history.push(`/paths/${i}`)}>
                             <ListItemAvatar>
-
+                                <Avatar alt={path.name} src={path.picture} />
                             </ListItemAvatar>
                             <ListItemText
                                 primary={path.name}
                                 secondary={
                                     <>
-                                        <span>{path.rating}</span><br />
-                                        <span>{path.description}</span>
+                                        <span className={classes.rating}>
+                                            <StarHalf className={classes.starIco} />{path.rating}
+                                        </span>
+                                        <span className={classes.description}>{path.description}</span>
                                     </>
                                 }
                                 className={classes.listItemText}
@@ -89,5 +93,21 @@ const useStyles = makeStyles((theme) => ({
     },
     listItemText: {
         marginLeft: theme.spacing(1),
+    },
+    rating: {
+        color: theme.palette.primary.main,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "flex-end",
+        position: "absolute",
+        top: theme.spacing(1.6),
+        right: theme.spacing(2)
+    },
+    starIco: {
+        marginRight: theme.spacing(0.5)
+    },
+    description: {
+        paddingTop: theme.spacing(1),
+        display: "block"
     }
 }));

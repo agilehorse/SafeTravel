@@ -18,6 +18,8 @@ import SpanelPicture from "../resources/spanelska_synagoga.png";
 import StaronovaPicture from "../resources/staronova_synagoga.png";
 import PinkasPicture from "../resources/pinkasova_synagoga.jpg";
 
+import NamMiruPicture from "../resources/namesti_miru.jpg";
+
 import {
     CultureCategories,
     FoodCategories,
@@ -201,6 +203,7 @@ export const PATHS = [
         description: "Cesta jednou z nedoceněných čtvrtí města.",
         duration: 60*4,
         type: PATH_TYPES.ON_FOOT,
+        picture: NamMiruPicture,
         path: []
     }
 ];
