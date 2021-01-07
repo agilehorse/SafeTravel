@@ -8,7 +8,7 @@ import {makeStyles} from "@material-ui/core/styles";
 export default function () {
     const classes = useStyles();
 
-    const {pathId, placeId} = useParams();
+    const {pathId, placeId, currentNav} = useParams();
     const history = useHistory();
 
     const path = PATHS[pathId];
@@ -16,7 +16,12 @@ export default function () {
 
     return (
       <>
-          <Header text={place.name} isCancel cancelAction={() => history.push(`/paths/${pathId}`)} />
+          <Header text={place.name} isCancel
+                  cancelAction={() =>
+                      currentNav
+                          ? history.push(`/paths/${pathId}/navigation/${currentNav}`)
+                          : history.push(`/paths/${pathId}`)}
+          />
           <section className={classes.content}>
               <Typography variant="h5">{Number(placeId)+1}. zastávka</Typography>
               <p className={classes.paragraph}>{place.description}</p>

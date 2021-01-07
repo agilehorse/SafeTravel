@@ -20,6 +20,8 @@ import PinkasPicture from "../resources/pinkasova_synagoga.jpg";
 
 import NamMiruPicture from "../resources/namesti_miru.jpg";
 
+import {ArrowUpward, ArrowForward, ArrowBack} from "@material-ui/icons";
+
 import {
     CultureCategories,
     FoodCategories,
@@ -205,5 +207,23 @@ export const PATHS = [
         type: PATH_TYPES.ON_FOOT,
         picture: NamMiruPicture,
         path: []
+    }
+];
+
+export const DIRECTIONS = [
+    {
+        id: "right",
+        description: "Na příští křižovatce odbočte doprava.",
+        icon: <ArrowForward />
+    },
+    {
+        id: "straight",
+        description: "Pokračuj do další křižovatky rovně.",
+        icon: <ArrowUpward />
+    },
+    {
+        id: "left",
+        description: "Na příští křižovatce odbočte doleva.",
+        icon: <ArrowBack />
     }
 ];

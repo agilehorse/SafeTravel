@@ -11,12 +11,12 @@ import {cutText} from "../../utils/functions";
 import {ThumbUp, ThumbDown} from "@material-ui/icons";
 import {Alert} from "@material-ui/lab";
 import CloseIcon from "@material-ui/icons/Close";
+import GraphicWay from "../reusable/GraphicWay";
 
 export default function PathsDetail() {
     const classes = useStyles();
-
-    const {pathId} = useParams();
     const history = useHistory();
+    const {pathId} = useParams();
 
     const path = PATHS[pathId];
 
@@ -79,30 +79,13 @@ export default function PathsDetail() {
                 </Collapse>
 
 
-                <Button className={classes.navigateBtn} variant="contained" color="primary" onClick={() => {}}>
+                <Button className={classes.navigateBtn} variant="contained" color="primary"
+                        onClick={() => history.push(`/paths/${pathId}/navigation`)}>
                     Začít navigovat
                 </Button>
             </div>
-            <div className={clsx(classes.content, classes.timeline)}>
-                {
-                    path.path.map((place, i) =>
-                        <div
-                            key={place.id}
-                            className={classes.place}
-                            onClick={()=>history.push(`/paths/${pathId}/${i}`)}
-                        >
-                            <div className={classes.graphicPoint} />
-                            {
-                                i!==path.path.length-1 &&
-                                <div className={classes.graphicLine} />
-                            }
-                            <div className={classes.placeContent}>
-                                <Typography className={classes.placeHeading} variant="h5">{place.name}</Typography>
-                                <div className={classes.placeDescription}>{cutText(place.description)}</div>
-                            </div>
-                        </div>
-                    )
-                }
+            <div className={classes.content}>
+                <GraphicWay path={path} pathId={pathId} />
             </div>
         </>
     );
@@ -115,45 +98,12 @@ const useStyles = makeStyles((theme)=>({
     navigateBtn: {
         width: "100%"
     },
-    timeline: {
-        marginTop: theme.spacing(2)
-    },
-    place: {
-        display: "flex",
-        position: "relative"
-    },
     picture: {
         height: 200,
         width: "100%",
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",
         backgroundPosition: "center center"
-    },
-    graphicPoint: {
-        width: 40,
-        height: 40,
-        minWidth: 40,
-        backgroundColor: theme.palette.primary.main,
-        borderRadius: 20
-    },
-    placeContent: {
-        paddingTop: theme.spacing(0.5),
-        paddingLeft: theme.spacing(1),
-        paddingBottom: theme.spacing(3)
-    },
-    graphicLine: {
-        position: "absolute",
-        width: 5,
-        height: "100%",
-        backgroundColor: theme.palette.primary.main,
-        left: 35/2,
-        top: 2
-    },
-    placeHeading: {
-        marginBottom: theme.spacing(1)
-    },
-    placeDescription: {
-        color: "gray"
     },
     ratingButton: {
         minWidth: "unset",
