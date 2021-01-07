@@ -19,6 +19,10 @@ export default function PathsDetail() {
     return (
         <>
             <Header text={path.name} isCancel cancelAction={() => history.push("/paths")}/>
+            <div
+                className={classes.picture}
+                style={{backgroundImage: `url(${path.picture})`}}
+            />
             <div className={classes.content}>
                 <p><strong>Doba cesty:</strong> {path.duration/60} hodin</p>
                 <p><strong>Typ dopravy:</strong> pěšky</p>
@@ -65,6 +69,13 @@ const useStyles = makeStyles((theme)=>({
     place: {
         display: "flex",
         position: "relative"
+    },
+    picture: {
+        height: 200,
+        width: "100%",
+        backgroundRepeat: "no-repeat",
+        backgroundSize: "cover",
+        backgroundPosition: "center center"
     },
     graphicPoint: {
         width: 40,

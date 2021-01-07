@@ -13,6 +13,10 @@ import CinemaPicture from "../resources/cinema.jpg"
 import BridgeIcon from "../resources/bridgeIcon.jpg"
 import BridgePicture from "../resources/bridge.jpg"
 
+import StaromePicture from "../resources/staromestske_namesti.jpg";
+import SpanelPicture from "../resources/spanelska_synagoga.png";
+import StaronovaPicture from "../resources/staronova_synagoga.png";
+import PinkasPicture from "../resources/pinkasova_synagoga.jpg";
 
 import {
     CultureCategories,
@@ -22,6 +26,7 @@ import {
     PriceRange, SightsCategories,
     SportCategories
 } from "./consts";
+import {Spa} from "@material-ui/icons";
 
 export const NewPlace = {
     id: '',
@@ -138,6 +143,7 @@ export const PATHS = [
         description: "Jedinečná cesta skrz jednu z mála zachovalých židovských čtvrtí v Evropě.",
         duration: 60*10,
         type: PATH_TYPES.ON_FOOT,
+        picture: SpanelPicture,
         path: [
             {
                 id: "staromestske namesti",
@@ -149,7 +155,8 @@ export const PATHS = [
                 Týnský chrám, husitský kostel svatého Mikuláše na Starém Městě, palác Kinských a dům „U Kamenného zvonu“. 
                 Na náměstí stojí pomník mistra Jana Husa a Mariánský sloup. Renesanční, barokní a rokokové domy po obvodu
                 náměstí mají románské a gotické základy.
-                `
+                `,
+                picture: StaromePicture
             },
             {
                 id: "spanelska synagoga",
@@ -159,7 +166,8 @@ export const PATHS = [
                 Španělská synagoga (původně Templ v Dušní ulici) je nejmladší synagogou v tzv. židovském městě na pražském Josefově. 
                 Byla postavena v maurském slohu. Nachází se v Dušní ulici v sousedství kostela sv. Ducha a parčíku s pomníkem
                 Franze Kafky od Jaroslava Róny. V současnosti je spravována Židovským muzeem v Praze.
-                `
+                `,
+                picture: SpanelPicture
             },
             {
                 id: "pinkasova synagoga",
@@ -170,7 +178,8 @@ export const PATHS = [
                 příslušníka významné rodiny své doby Arona Mešulama Horovice v první polovině 16. století. V současné
                 době je spravována Židovským muzeem v Praze a slouží jako památník přes 80 000 českých Židů,
                 kteří zahynuli během holokaustu.
-                `
+                `,
+                picture: PinkasPicture
             },
             {
                 id: "staronova synagoga",
@@ -180,7 +189,8 @@ export const PATHS = [
                 Staronová synagoga v Praze, mezinárodně známá také jako Altneuschul, je jedna z nejstarších synagog v
                 Evropě, která se stále používá k náboženským obřadům. Zároveň je jednou z nejstarších dochovaných synagog
                 ve střední Evropě a také nejstarší dochovanou stavbou Josefova.
-                `
+                `,
+                picture: StaronovaPicture
             }
         ]
     },

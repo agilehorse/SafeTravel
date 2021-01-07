@@ -31,6 +31,13 @@ export default function () {
                       tabIndex="0" />
               </p>
               <Typography variant="h5">Fotky</Typography>
+              <p>
+                  <img
+                      src={place.picture}
+                      alt="pic"
+                      style={{width: "100%"}}
+                  />
+              </p>
           </section>
       </>
     );
