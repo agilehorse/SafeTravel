@@ -12,6 +12,8 @@ import CinemaIcon from "../resources/cinemaIcon.jpg"
 import CinemaPicture from "../resources/cinema.jpg"
 import BridgeIcon from "../resources/bridgeIcon.jpg"
 import BridgePicture from "../resources/bridge.jpg"
+
+
 import {
     CultureCategories,
     FoodCategories,
@@ -140,6 +142,7 @@ export const PATHS = [
             {
                 id: "staromestske namesti",
                 name: "Staroměstské náměstí",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.9147219463102!2d14.418562451757904!3d50.08746817932606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e93e1fa817%3A0x58841cb69a51337!2zU3Rhcm9txJtzdHNrw6kgbsOhbS4sIDExMCAwMCBTdGFyw6kgTcSbc3Rv!5e1!3m2!1scs!2scz!4v1610013703938!5m2!1scs!2scz",
                 description: `
                 Náměstí v Praze v centru Starého Města a historického jádra velkoměsta vůbec.
                 Staroměstské náměstí obklopují historické stavby, z nichž vyniká Staroměstská radnice s orlojem, 
@@ -151,6 +154,7 @@ export const PATHS = [
             {
                 id: "spanelska synagoga",
                 name: "Španělská synagoga",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.700847717051!2d14.418654451757963!3d50.09043077932629!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e9ca5fda67%3A0xb74e9199050993dd!2zxaBwYW7Em2xza8OhIFN5bmFnb2dh!5e1!3m2!1scs!2scz!4v1610014252968!5m2!1scs!2scz",
                 description: `
                 Španělská synagoga (původně Templ v Dušní ulici) je nejmladší synagogou v tzv. židovském městě na pražském Josefově. 
                 Byla postavena v maurském slohu. Nachází se v Dušní ulici v sousedství kostela sv. Ducha a parčíku s pomníkem
@@ -160,6 +164,7 @@ export const PATHS = [
             {
                 id: "pinkasova synagoga",
                 name: "Pinkasova synagoga",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.7878972184208!2d14.41477815175796!3d50.0892249793261!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e85e9af185%3A0x294f2ae19539722d!2sPinkasova%20Synagoga!5e1!3m2!1scs!2scz!4v1610014313305!5m2!1scs!2scz",
                 description: `
                 Pinkasova synagoga je druhou nejstarší dochovanou synagogou v Praze. Byla postavena z iniciativy
                 příslušníka významné rodiny své doby Arona Mešulama Horovice v první polovině 16. století. V současné
@@ -170,6 +175,7 @@ export const PATHS = [
             {
                 id: "staronova synagoga",
                 name: "Staronová synagoga",
+                map: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3459.726779359211!2d14.416410851757961!3d50.09007157932622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b94e868e5c8c9%3A0x94be0e2fdb884bfa!2sStaronov%C3%A1%20Synagoga!5e1!3m2!1scs!2scz!4v1610010063232!5m2!1scs!2scz",
                 description: `
                 Staronová synagoga v Praze, mezinárodně známá také jako Altneuschul, je jedna z nejstarších synagog v
                 Evropě, která se stále používá k náboženským obřadům. Zároveň je jednou z nejstarších dochovaných synagog

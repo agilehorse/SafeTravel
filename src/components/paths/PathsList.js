@@ -63,8 +63,8 @@ export default function PathsList() {
                                 primary={path.name}
                                 secondary={
                                     <>
-                                        <div>{path.rating}</div>
-                                        <div>{path.description}</div>
+                                        <span>{path.rating}</span><br />
+                                        <span>{path.description}</span>
                                     </>
                                 }
                                 className={classes.listItemText}

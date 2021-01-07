@@ -21,6 +21,15 @@ export default function () {
               <Typography variant="h5">{Number(placeId)+1}. zastávka</Typography>
               <p className={classes.paragraph}>{place.description}</p>
               <Typography variant="h5">Poloha</Typography>
+              <p className={classes.paragraph}>
+                  <iframe
+                      src={place.map}
+                      frameBorder="0"
+                      className={classes.map}
+                      allowFullScreen=""
+                      aria-hidden="false"
+                      tabIndex="0" />
+              </p>
               <Typography variant="h5">Fotky</Typography>
           </section>
       </>
@@ -33,5 +42,10 @@ const useStyles = makeStyles(theme=>({
     },
     paragraph: {
         marginTop: theme.spacing(1)
+    },
+    map: {
+        border: 0,
+        height: 300,
+        width: "100%"
     }
 }))
