@@ -5,7 +5,6 @@ import {useHistory} from "react-router-dom";
 import SearchInput from "./reusable/SearchInput";
 import Items from "./reusable/Items";
 import {DESTINATION} from "../utils/mockData";
-import {StarHalf} from "@material-ui/icons";
 import Button from "@material-ui/core/Button";
 
 

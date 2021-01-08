@@ -10,7 +10,6 @@ export default function SimpleBottomNavigation() {
     const classes = useStyles();
     const history = useHistory();
     const [value, setValue] = React.useState(translateURI(getPageNameFromURL()));
-    let hidden = true;
 
     function handleChange(newValue) {
         history.push(`/${translateURI(newValue)}`);
