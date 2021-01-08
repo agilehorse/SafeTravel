@@ -16,7 +16,6 @@ export default function Destinations() {
     function showSearch(data){
         console.log(data)
         if ("praha".includes(data.toString()) ){
-            console.log("nothing")
             setState({...state, ["hidden"]: false})
         }
     }
