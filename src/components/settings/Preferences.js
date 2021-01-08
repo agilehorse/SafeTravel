@@ -52,7 +52,6 @@ export default function Preferences() {
                     getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
                     precision={0.5}
                     icon={<FavoriteIcon fontSize="inherit"/>}
-                    //onClick = { () => console.log("Helloooo")}
                     onChange={handleChange}
                     size="large"
                 />
@@ -68,7 +67,6 @@ export default function Preferences() {
                     getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
                     precision={0.5}
                     icon={<FavoriteIcon fontSize="inherit"/>}
-                    //onClick = { () => console.log("Helloooo11111")}
                     onChange={handleChange}
                     size="large"
 
@@ -82,7 +80,6 @@ export default function Preferences() {
                     getLabelText={(value) => `${value} Heart${value !== 1 ? 's' : ''}`}
                     precision={0.5}
                     icon={<FavoriteIcon fontSize="inherit"/>}
-                    //onClick = { () => console.log("Helloooo2222222")}
                     onChange={handleChange}
                     size="large"
                 />
