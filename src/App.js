@@ -12,6 +12,7 @@ import SettingsPage from "./components/settings/Settings";
 import React, {createContext, useState} from "react";
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
 import ScrollToTop from "./ScrollToTop";
+import {getPageNameFromURL, translateURI} from "./utils/functions";
 
 export const Context = createContext();
 
@@ -19,6 +20,7 @@ export default function App() {
 
     const classes = useStyles();
     const [context, setContext] = useState("Praha");
+    const [navigation, setNavigation] = React.useState(translateURI(getPageNameFromURL()));
 
     return (
         <ThemeProvider theme={theme}>
@@ -30,25 +32,44 @@ export default function App() {
                             <Switch>
                                 <Route path="/places">
                                     <Places/>
+                                    <SimpleBottomNavigation
+                                        value={navigation}
+                                        setValue={setNavigation}
+                                    />
                                 </Route>
                                 <Route path="/info">
                                     <Info/>
+                                    <SimpleBottomNavigation
+                                        value={navigation}
+                                        setValue={setNavigation}
+                                    />
                                 </Route>
                                 <Route path="/paths">
                                     <Paths/>
+                                    <SimpleBottomNavigation
+                                        value={navigation}
+                                        setValue={setNavigation}
+                                    />
                                 </Route>
                                 <Route path="/settings">
                                     <SettingsPage/>
+                                    <SimpleBottomNavigation
+                                        value={navigation}
+                                        setValue={setNavigation}
+                                    />
                                 </Route>
                                 <Route path="/destinations">
-                                    <Destinations/>
+                                    <Destinations changeBottomNav={setNavigation}/>
+                                    <SimpleBottomNavigation
+                                        value={navigation}
+                                        setValue={setNavigation}
+                                    />
                                 </Route>
                                 <Route path="/">
                                     <Preferences/>
                                 </Route>
                             </Switch>
                         </div>
-                        <SimpleBottomNavigation/>
                     </div>
                 </Router>
             </Context.Provider>

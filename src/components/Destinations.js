@@ -6,9 +6,10 @@ import SearchInput from "./reusable/SearchInput";
 import Items from "./reusable/Items";
 import {DESTINATION} from "../utils/mockData";
 import Button from "@material-ui/core/Button";
+import Header from "./reusable/Header";
 
 
-export default function Destinations() {
+export default function Destinations({changeBottomNav}) {
 
     const classes = useStyles();
     const history = useHistory();
@@ -25,51 +26,57 @@ export default function Destinations() {
 
 
     return (
-        <div className={classes.root}>
-            <img src={logo} alt="app logo" className={classes.image}/>
+        <>
+            <Header text={"Destinace"}/>
+            <div className={classes.root}>
+                <img src={logo} alt="app logo" className={classes.image}/>
 
-            <div className={classes.searchRow}>
-                <SearchInput
-                    onChange={(event) => showSearch( event.target.value)}
-                    icons={{
-                        search: {},
-                        explore: {}
-                    }}
+                <div className={classes.searchRow}>
+                    <SearchInput
+                        onChange={(event) => showSearch( event.target.value)}
+                        icons={{
+                            search: {},
+                            explore: {}
+                        }}
 
-                    placeholder="Kam cestujete?"
-                />
+                        placeholder="Kam cestujete?"
+                    />
+                </div>
+                <div hidden={state.hidden} className={classes.search}
+                     onClick={() => history.push('/places')} >Praha</div>
+
+
+
+
+                <Items>
+                    {
+                        DESTINATION.map((dest, i) =>
+                            <ListItem key={dest.id} >
+                                <ListItemAvatar>
+                                    <Avatar alt={dest.name} src={dest.picture}  className={classes.avatar} />
+                                </ListItemAvatar>
+                                <ListItemText
+                                    primary={dest.name}
+                                    secondary={
+                                        <>
+                                            <span className={classes.description}>{dest.description}</span>
+                                        </>
+                                    }
+                                    className={classes.listItemText}
+                                />
+                                <Button variant="contained" color="first" onClick={() => {
+                                    history.push('/places');
+                                    changeBottomNav(1);
+                                }}>
+                                    VYBRAT
+                                </Button>
+                            </ListItem>
+                        )
+                    }
+                </Items>
+
             </div>
-            <div hidden={state.hidden} className={classes.search}
-                 onClick={() => history.push('/places')} >Praha</div>
-
-
-
-
-            <Items>
-                {
-                    DESTINATION.map((dest, i) =>
-                        <ListItem key={dest.id} >
-                            <ListItemAvatar>
-                                <Avatar alt={dest.name} src={dest.picture}  className={classes.avatar} />
-                            </ListItemAvatar>
-                            <ListItemText
-                                primary={dest.name}
-                                secondary={
-                                    <>
-                                        <span className={classes.description}>{dest.description}</span>
-                                    </>
-                                }
-                                className={classes.listItemText}
-                            />
-                            <Button variant="contained" color="first" onClick={() => history.push('/places')}>
-                                VYBRAT
-                            </Button>
-                        </ListItem>
-                    )
-                }
-            </Items>
-
-        </div>
+        </>
     )
 }
 

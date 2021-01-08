@@ -6,10 +6,9 @@ import {useHistory, useRouteMatch} from "react-router-dom";
 import {NAVIGATION} from "../utils/consts";
 import {getPageNameFromURL, translateURI} from "../utils/functions";
 
-export default function SimpleBottomNavigation() {
+export default function SimpleBottomNavigation({value, setValue}) {
     const classes = useStyles();
     const history = useHistory();
-    const [value, setValue] = React.useState(translateURI(getPageNameFromURL()));
 
     function handleChange(newValue) {
         history.push(`/${translateURI(newValue)}`);
@@ -24,9 +23,15 @@ export default function SimpleBottomNavigation() {
             className={classes.root}
         >
             {
-                NAVIGATION.map((item) =>
-                    <BottomNavigationAction key={item.id} label={item.name} icon={item.icon} />
-                )
+                NAVIGATION.map((item) => {
+                    const itemEl = <BottomNavigationAction key={item.id} label={item.name} icon={item.icon}/>;
+                    if (value===0) {
+                        if (item.id===0)
+                            return itemEl;
+                        return null;
+                    }
+                    return itemEl;
+                })
             }
         </BottomNavigation>
     );
