@@ -11,6 +11,7 @@ import SettingsPage from "./components/settings/Settings";
 
 import React, {createContext, useState} from "react";
 import { createMuiTheme, makeStyles, ThemeProvider } from '@material-ui/core/styles';
+import ScrollToTop from "./ScrollToTop";
 
 export const Context = createContext();
 
@@ -23,6 +24,7 @@ export default function App() {
         <ThemeProvider theme={theme}>
             <Context.Provider value={[context, setContext]}>
                 <Router>
+                    <ScrollToTop />
                     <div className="App">
                         <div className={classes.page}>
                             <Switch>
