@@ -1,8 +1,12 @@
 import logo from "../resources/big_logo.png"
-import {makeStyles} from "@material-ui/core";
+import {Avatar, ListItem, ListItemAvatar, ListItemText, makeStyles} from "@material-ui/core";
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
 import SearchInput from "./reusable/SearchInput";
+import Items from "./reusable/Items";
+import {DESTINATION} from "../utils/mockData";
+import {StarHalf} from "@material-ui/icons";
+import Button from "@material-ui/core/Button";
 
 
 export default function Destinations() {
@@ -39,6 +43,33 @@ export default function Destinations() {
             <div hidden={state.hidden} className={classes.search}
                  onClick={() => history.push('/places')} >Praha</div>
 
+
+
+
+            <Items>
+                {
+                    DESTINATION.map((dest, i) =>
+                        <ListItem key={dest.id} >
+                            <ListItemAvatar>
+                                <Avatar alt={dest.name} src={dest.picture}  className={classes.avatar} />
+                            </ListItemAvatar>
+                            <ListItemText
+                                primary={dest.name}
+                                secondary={
+                                    <>
+                                        <span className={classes.description}>{dest.description}</span>
+                                    </>
+                                }
+                                className={classes.listItemText}
+                            />
+                            <Button variant="contained" color="first" onClick={() => history.push('/places')}>
+                                VYBRAT
+                            </Button>
+                        </ListItem>
+                    )
+                }
+            </Items>
+
         </div>
     )
 }
@@ -68,5 +99,10 @@ const useStyles = makeStyles((theme) => ({
         paddingBottom: '8px',
         paddingTop: '8px',
 
+    },
+    avatar:{
+        width: theme.spacing(9),
+        height: theme.spacing(9),
+        marginRight: '10px',
     }
 }));

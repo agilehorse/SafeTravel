@@ -10,6 +10,7 @@ export default function SimpleBottomNavigation() {
     const classes = useStyles();
     const history = useHistory();
     const [value, setValue] = React.useState(translateURI(getPageNameFromURL()));
+    let hidden = true;
 
     function handleChange(newValue) {
         history.push(`/${translateURI(newValue)}`);
@@ -25,7 +26,7 @@ export default function SimpleBottomNavigation() {
         >
             {
                 NAVIGATION.map((item) =>
-                    <BottomNavigationAction key={item.id} label={item.name} icon={item.icon}/>
+                    <BottomNavigationAction key={item.id} label={item.name} icon={item.icon} />
                 )
             }
         </BottomNavigation>

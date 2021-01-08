@@ -29,6 +29,11 @@ import dinnerPicture from "../resources/familyDinner.png"
 import zmenarenPicture from "../resources/zmenaren.png"
 import minimarketPicture from "../resources/minimarket.png"
 
+import prahaPicture from "../resources/Praha.png"
+import skalyPicture from "../resources/Skaly.png"
+
+
+
 
 
 
@@ -256,6 +261,21 @@ export const INFO = [
 
 
 ]
+
+export const DESTINATION = [
+    {
+        id: "praha",
+        name: "Praha",
+        description: "Praha je hlavní město a současně největší město Česka, " +
+            "zároveň je 13. největším městem Evropské unie.",
+        picture: prahaPicture,
+    },{
+        id: "skaly",
+        name: "Adršpašské skály ",
+        description: " Národní přírodní rezervace byla vyhlášená již v roke 1933 na " +
+            "rozloze 1771 ha k ochraně zachovalých celkú skalních měst.",
+        picture: skalyPicture,
+    },]
 
 export const DIRECTIONS = [
     {
