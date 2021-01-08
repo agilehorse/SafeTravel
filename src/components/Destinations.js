@@ -1,27 +1,24 @@
 import logo from "../resources/big_logo.png"
-import {InputAdornment, makeStyles, TextField} from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
-import ExploreIcon from "@material-ui/icons/Explore";
-import FilterListIcon from "@material-ui/icons/FilterList";
-import React, {useContext, useState} from "react";
-import {Context} from "../App";
-import {useHistory, useLocation} from "react-router-dom";
+import {makeStyles} from "@material-ui/core";
+import React, {useState} from "react";
+import {useHistory} from "react-router-dom";
 import SearchInput from "./reusable/SearchInput";
 
 
 export default function Destinations() {
 
     const classes = useStyles();
-    const [context] = useContext(Context);
-    const location = useLocation();
     const history = useHistory();
+    const [state, setState] = useState({hidden : true})
 
 
 
-
-    const [state, setState] = useState(location.state)
-    function handleChange(name, value) {
-        setState({...state, [name]: value})
+    function showSearch(data){
+        console.log(data)
+        if ("praha".includes(data.toString()) ){
+            console.log("nothing")
+            setState({...state, ["hidden"]: false})
+        }
     }
 
 
@@ -31,18 +28,18 @@ export default function Destinations() {
 
             <div className={classes.searchRow}>
                 <SearchInput
+                    onChange={(event) => showSearch( event.target.value)}
                     icons={{
-                        search: {
-                            onClick: () => history.push('/Places')
-                        },
-                        explore: {
-                            onClick: () => history.push('/Places')
-                        }
+                        search: {},
+                        explore: {}
                     }}
 
                     placeholder="Kam cestujete?"
                 />
             </div>
+            <div hidden={state.hidden} className={classes.search}
+                 onClick={() => history.push('/places')} >Praha</div>
+
         </div>
     )
 }
@@ -61,5 +58,16 @@ const useStyles = makeStyles((theme) => ({
     searchRow: {
         marginTop: theme.spacing(10),
         width: '80%',
+    },
+    search:{
+        border: "solid",
+        borderRadius: '4%' ,
+        color: '#3cb80c',
+        borderWidth: "thin" ,
+        width: '79%',
+        textAlign: "center",
+        paddingBottom: '8px',
+        paddingTop: '8px',
+
     }
 }));

@@ -4,7 +4,7 @@ import SimpleBottomNavigation from "./components/BottomNav";
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
 import Destinations from "./components/Destinations";
 import Places from "./components/places/Places";
-import Info from "./components/Info";
+import Info from "./components/Info/Info";
 import Paths from "./components/paths/Paths";
 import Preferences from "./components/settings/Preferences";
 import SettingsPage from "./components/settings/Settings";

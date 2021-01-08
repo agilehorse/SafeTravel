@@ -20,6 +20,18 @@ import PinkasPicture from "../resources/pinkasova_synagoga.jpg";
 
 import NamMiruPicture from "../resources/namesti_miru.jpg";
 
+
+
+import warningIcon from "../resources/warningIcon.png"
+import infoIcon from "../resources/infoIcon.png"
+import ideaIcon from "../resources/ideaIcon.png"
+import dinnerPicture from "../resources/familyDinner.png"
+import zmenarenPicture from "../resources/zmenaren.png"
+import minimarketPicture from "../resources/minimarket.png"
+
+
+
+
 import {ArrowUpward, ArrowForward, ArrowBack} from "@material-ui/icons";
 
 import {
@@ -209,6 +221,41 @@ export const PATHS = [
         path: []
     }
 ];
+
+export const INFO = [
+    {
+        id: "smenarny",
+        name: "Pozor na směnárny",
+        rating: 120,
+        snakpeak: "Na každém rohu v Praze naleznete směnárnu.. ",
+        description: "Na každém rohu v Praze naleznete směnárnu. " +
+            "Většina z nich Vám nabízí zdánlivě výhodný kurz, nicméně " +
+            "provozovatelé do těchto kurzu nezapočítavají poplatky.",
+        picture: zmenarenPicture,
+        icon: warningIcon,
+    },
+    {
+        id: "zvyk",
+        name: "Zvyk pred jidlem",
+        rating: 20,
+        snakpeak: "Než se začne jíst, tak je zvykem ostatným popřát..",
+        description: "Než se začne jíst, tak je zvykem ostatným popřát dobrou chuť!",
+        picture: dinnerPicture,
+        icon: infoIcon
+    },
+    {
+        id: "minimarket",
+        name: "Minimarkety",
+        rating: 40,
+        snakpeak: "Když zjistíte že máte v noci na něco chuť..",
+        description: "Když zjistíte že máte v noci na něco chuť doma nic nemáte nezoufejte, na každý ulici" +
+            "je minimálne jeden minimarket který běží až do rána.",
+        picture: minimarketPicture,
+        icon: ideaIcon,
+    }
+
+
+]
 
 export const DIRECTIONS = [
     {
