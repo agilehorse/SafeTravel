@@ -43,7 +43,10 @@ export default function Destinations({changeBottomNav}) {
                     />
                 </div>
                 <div hidden={state.hidden} className={classes.search}
-                     onClick={() => history.push('/places')} >Praha</div>
+                     onClick={() => {
+                         history.push('/places');
+                         changeBottomNav(1);
+                     }} >Praha</div>
 
 
 
@@ -65,10 +68,9 @@ export default function Destinations({changeBottomNav}) {
                                     className={classes.listItemText}
                                 />
                                 <Button variant="contained" color="first" onClick={() => {
-                                    history.push('/places');
-                                    changeBottomNav(1);
+
                                 }}>
-                                    VYBRAT
+                                    DETAIL
                                 </Button>
                             </ListItem>
                         )
