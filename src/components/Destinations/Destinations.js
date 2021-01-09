@@ -1,12 +1,12 @@
-import logo from "../resources/big_logo.png"
+import logo from "../../resources/big_logo.png"
 import {Avatar, ListItem, ListItemAvatar, ListItemText, makeStyles} from "@material-ui/core";
 import React, {useState} from "react";
 import {useHistory} from "react-router-dom";
-import SearchInput from "./reusable/SearchInput";
-import Items from "./reusable/Items";
-import {DESTINATION} from "../utils/mockData";
+import SearchInput from "../reusable/SearchInput";
+import Items from "../reusable/Items";
+import {DESTINATION} from "../../utils/mockData";
 import Button from "@material-ui/core/Button";
-import Header from "./reusable/Header";
+import Header from "../reusable/Header";
 
 
 export default function Destinations({changeBottomNav}) {
@@ -51,7 +51,7 @@ export default function Destinations({changeBottomNav}) {
                 <Items>
                     {
                         DESTINATION.map((dest, i) =>
-                            <ListItem key={dest.id} >
+                            <ListItem key={dest.id} onClick={() => history.push(`/destinations/${i}`)}>
                                 <ListItemAvatar>
                                     <Avatar alt={dest.name} src={dest.picture}  className={classes.avatar} />
                                 </ListItemAvatar>

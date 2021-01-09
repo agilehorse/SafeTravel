@@ -2,7 +2,7 @@ import './App.css';
 import 'fontsource-roboto';
 import SimpleBottomNavigation from "./components/BottomNav";
 import {BrowserRouter as Router, Route, Switch,} from "react-router-dom";
-import Destinations from "./components/Destinations";
+import DestinationNav from "./components/Destinations/DestinationNav";
 import Places from "./components/places/Places";
 import Info from "./components/Info/Info";
 import Paths from "./components/paths/Paths";
@@ -59,7 +59,7 @@ export default function App() {
                                     />
                                 </Route>
                                 <Route path="/destinations">
-                                    <Destinations changeBottomNav={setNavigation}/>
+                                    <DestinationNav changeBottomNav={setNavigation}/>
                                     <SimpleBottomNavigation
                                         value={navigation}
                                         setValue={setNavigation}
